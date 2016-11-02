@@ -20,7 +20,7 @@ public class Game extends javax.swing.JFrame {
     private int players = 0;
     private final GameMethods Mech = new GameMethods();
     private final LastWindow endFrame = new LastWindow();
-    private final ArrayList <Player> Players = new ArrayList<>();
+    
     
     private boolean dado_lock = true;
     private int turn = -1;
@@ -29,7 +29,6 @@ public class Game extends javax.swing.JFrame {
         initComponents();
         Mech.armarPreguntas();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -179,27 +178,8 @@ public class Game extends javax.swing.JFrame {
     
     public void setPlayers(int p){
         this.players = p;
-    }
+    } 
     
-        public void fillPlayersCollection(String [] playName){ //Agrega los Players a la ArrayList
-            Player j1 = new Player(playName[0]);
-            Player j2 = new Player(playName[1]);
-            Player j3 = new Player(playName[2]);
-            Player j4 = new Player(playName[3]);
-            
-            Players.add(j1);
-            Players.add(j2);
-            switch(players){
-                case 3: Players.add(j3);
-                    break;
-                case 4: Players.add(j3);
-                        Players.add(j4);
-                    break;
-            }            
-        }    
-    
-
-
     protected javax.swing.JButton Dado;
     protected javax.swing.JLabel J1;
     protected javax.swing.JLabel J1Score;
@@ -220,7 +200,7 @@ public class Game extends javax.swing.JFrame {
             Dado.setText(Integer.toString(cara));
             Dado.setIcon(null);
             dado_lock = true;
-            int pregunta = Players.get(turn).getScore() + cara;
+            int pregunta = Mech.Players.get(turn).getScore() + cara;
             if(pregunta >= Mech.preguntas.size()){
                 Question.setText("Usted Es un Gran DRUNK!");
             } else{

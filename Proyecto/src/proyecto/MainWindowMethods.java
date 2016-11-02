@@ -33,23 +33,12 @@ public class MainWindowMethods {
     }
     
     public void WinSwitch(int g){ //Indica a la siguiente ventana Cuantos jugadores son, y Escuende las labelsque no se ocuparan
-        Gamers game = new Gamers();          
+        GamersMethods game = new GamersMethods();          
         game.setPlayers(g);
-        LabelsCorrection(game,g);
-        game.setVisible(true);
+        game.LabelsCorrection();
+        game.setVisiblePlay();
         
-    }
-    public void LabelsCorrection(Gamers temp, int p){ //Corrige las JLabels de Gamers segun el numero de jugadores
-        switch (p){
-            case 2:
-                temp.G3_setVisible(false);
-                temp.G4_setVisible(false);
-                break;
-            case 3:
-                temp.G4_setVisible(false);
-                break;            
-        }
-    }    
+    }   
     public void rankDrunks(){
         String drunks;
         drunks = data.leerFichero("Ranking.txt");

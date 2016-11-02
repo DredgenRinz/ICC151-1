@@ -87,8 +87,8 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_EXITActionPerformed
 
     private void STARTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STARTActionPerformed
-        dispose();
         meths.WinSwitch(meths.buton_Action());
+        dispose();
     }//GEN-LAST:event_STARTActionPerformed
 
     private void RANKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RANKActionPerformed

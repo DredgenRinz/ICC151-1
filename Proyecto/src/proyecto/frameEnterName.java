@@ -104,7 +104,7 @@ public class frameEnterName extends javax.swing.JFrame {
     private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
         Mets.setPlayersGame(this.players);
         Mets.setWindowPrepared(G1.getText(),G2.getText(),G3.getText(),G4.getText(),players);
-        Mets.setVisibleGame();
+        
         dispose();
         
     }//GEN-LAST:event_NextActionPerformed

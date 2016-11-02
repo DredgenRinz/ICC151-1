@@ -36,7 +36,7 @@ public class MainWindow {
     public void WinSwitch(int g){ //Indica a la siguiente ventana Cuantos jugadores son, y Escuende las labelsque no se ocuparan          
         game.setPlayers(g);
         game.LabelsCorrection();
-        game.setVisiblePlay();
+
         
     }   
     public void rankDrunks(){

@@ -16,12 +16,7 @@ public class frameGame extends javax.swing.JFrame {
      * Creates new form Game
      */
     private int players = 0;
-    private final Game Mech = new Game();
-    private final frameWinner endFrame = new frameWinner();
-    
-    
-    private boolean dado_lock = true;
-    private int turn = -1;
+    protected final Game Mech = new Game();
     
     public frameGame() {
         initComponents();
@@ -165,18 +160,29 @@ public class frameGame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
-        checkStateAndGoNext();
-
+        Mech.score_update(J1Score,  J2Score,  J3Score,  J4Score,  Dado);
+        if(Mech.ScoreCheck()==false) {
+            dispose();
+        }
+        Mech.checkStateAndGoNext(J1,J2,J3,J4,J1Score,J2Score,J3Score,J4Score,Dado,Next,Question);
     }//GEN-LAST:event_NextActionPerformed
 
     private void DadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DadoActionPerformed
-        dado_number();
+        Mech.dado_number(Dado, Question);
     }//GEN-LAST:event_DadoActionPerformed
 
     
     public void setPlayers(int p){
         this.players = p;
     } 
+    
+    public void setDadoIcon(){
+        Dado.setIcon(null);
+    }
+    
+    public void SetDadoText(String d){
+        Dado.setText(d);
+    }
     
     protected javax.swing.JButton Dado;
     protected javax.swing.JLabel J1;
@@ -190,85 +196,40 @@ public class frameGame extends javax.swing.JFrame {
     protected javax.swing.JButton Next;
     protected javax.swing.JTextArea Question;
     protected javax.swing.JScrollPane jScrollPane1;
-
-
-    private void dado_number() { //Simula el lanzamiento del dado, y muestra la accion en la ventana (ademas del numero del dado)
-        if(dado_lock == false){
-            int cara = (int)Math.floor(Math.random()*(1-6)+6);
-            Dado.setText(Integer.toString(cara));
-            Dado.setIcon(null);
-            dado_lock = true;
-            int pregunta = Mech.Players.get(turn).getScore() + cara;
-            if(pregunta >= Mech.preguntas.size()){
-                Question.setText("Usted Es un Gran DRUNK!");
-            } else{
-                Question.setText(Mech.preguntas.get(pregunta));
-            }
-        } else{
-            JOptionPane.showMessageDialog(null, "ya lanzaste el dado!!!");
-        }
+    
+    
+    public void setJ1(String j){
+        J1.setText(j);
     }
-
-    private void next_turn() { //Avanza al siguiente turno, Resalta en rojo el nombre jugador del turno actual
-        turn++;
-        if(turn==players) turn = 0;
-        
-        Question.setText("");
-        Dado.setVisible(true);
-        dado_lock = false;
-        
-        J1.setForeground(new java.awt.Color(0, 0, 0));
-        J2.setForeground(new java.awt.Color(0, 0, 0));
-        J3.setForeground(new java.awt.Color(0, 0, 0));
-        J4.setForeground(new java.awt.Color(0, 0, 0));
-        
-        switch(turn){
-            case 0: J1.setForeground(new java.awt.Color(255, 0, 51));
-                break;
-            case 1: J2.setForeground(new java.awt.Color(255, 0, 51));
-                break;
-            case 2: J3.setForeground(new java.awt.Color(255, 0, 51));
-                break;
-            case 3: J4.setForeground(new java.awt.Color(255, 0, 51));
-                break;
-        }
-        
+    public void setJ2(String j){
+        J2.setText(j);
     }
-
-    private void score_update() { //Actualiza el Score del jugador actual.
-    if (turn != -1){
-        Players.get(turn).addScore(Integer.parseInt(Dado.getText()));
-        switch(turn){
-            case 0: J1Score.setText(Integer.toString(Players.get(turn).getScore()));
-                break;
-            case 1: J2Score.setText(Integer.toString(Players.get(turn).getScore()));
-                break;
-            case 2: J3Score.setText(Integer.toString(Players.get(turn).getScore()));
-                break;
-            case 3: J4Score.setText(Integer.toString(Players.get(turn).getScore()));
-                break;
-        }
-        }
+    public void setJ3(String j){
+        J3.setText(j);
+    }
+    public void setJ4(String j){
+        J4.setText(j);
+    }
+    public void setJ1Score(String j){
+        J1Score.setText(j);
+    }    
+    public void setJ2Score(String j){
+        J2Score.setText(j);
+    }
+    public void setJ3Score(String j){
+        J3Score.setText(j);
+    }
+    public void setJ4Score(String j){
+        J4Score.setText(j);
+    } 
+    
+    public void setNextText(String t){
+        Next.setText(t);
     }
     
-    public void ScoreCheck(){ //Checkea el Score del Jugador actual, si supera el limite establecido, muestra la pantalla final.
-        if(turn != -1){
-        if((Players.get(turn).getScore()) > 39 ){
-            endFrame.setWiner(Players.get(turn).getPlayerName());
-            endFrame.setVisible(true);
-            dispose();
-        }
-        }
+    public void setNextQuestion(String t){
+        Question.setText(t);
     }
+    
 
-    private void checkStateAndGoNext() { //Checkea es estado de la partida, si el dado no fue lanzado no avanzara.
-    if(dado_lock == false){
-        JOptionPane.showMessageDialog(null,"Lanza el dado Primero!!!");
-    } else{
-        score_update();
-        Dado.setText("");
-        ScoreCheck();
-        next_turn();
-    }
-    }
 }

@@ -180,43 +180,6 @@ public class Game extends javax.swing.JFrame {
     public void setPlayers(int p){
         this.players = p;
     }
-    public void setWindowsReady(String [] playName){ //Prepara la ventana con la cantidad de jugadores establecida en la anterior clase
-        switch(this.players){
-            case 2:
-                J1.setText(playName[0]);
-                J1Score.setText("0");
-                J2.setText(playName[1]);
-                J2Score.setText("0");
-                J3.setVisible(false);
-                J3Score.setVisible(false);
-                J4.setVisible(false);
-                J4Score.setVisible(false);
-                break;
-            case 3:
-                J1.setText(playName[0]);
-                J1Score.setText("0");
-                J2.setText(playName[1]);
-                J2Score.setText("0");
-                J3.setText(playName[2]);
-                J3Score.setText("0");
-                J4.setVisible(false);
-                J4Score.setVisible(false);
-                break;
-            case 4:
-                J1.setText(playName[0]);
-                J1Score.setText("0");
-                J2.setText(playName[1]);
-                J2Score.setText("0");
-                J3.setText(playName[2]);
-                J3Score.setText("0");
-                J4.setText(playName[3]);
-                J4Score.setText("0");
-                break;
-        }
-        Dado.setVisible(false);
-        Next.setText("Entendido! Continuar!");
-        Question.setText("Recuerden tener el Stock \nsuficiente para jugar");
-    }
     
         public void fillPlayersCollection(String [] playName){ //Agrega los Players a la ArrayList
             Player j1 = new Player(playName[0]);
@@ -237,18 +200,18 @@ public class Game extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Dado;
-    private javax.swing.JLabel J1;
-    private javax.swing.JLabel J1Score;
-    private javax.swing.JLabel J2;
-    private javax.swing.JLabel J2Score;
-    private javax.swing.JLabel J3;
-    private javax.swing.JLabel J3Score;
-    private javax.swing.JLabel J4;
-    private javax.swing.JLabel J4Score;
-    private javax.swing.JButton Next;
-    private javax.swing.JTextArea Question;
-    private javax.swing.JScrollPane jScrollPane1;
+    protected javax.swing.JButton Dado;
+    protected javax.swing.JLabel J1;
+    protected javax.swing.JLabel J1Score;
+    protected javax.swing.JLabel J2;
+    protected javax.swing.JLabel J2Score;
+    protected javax.swing.JLabel J3;
+    protected javax.swing.JLabel J3Score;
+    protected javax.swing.JLabel J4;
+    protected javax.swing.JLabel J4Score;
+    protected javax.swing.JButton Next;
+    protected javax.swing.JTextArea Question;
+    protected javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
     private void dado_number() { //Simula el lanzamiento del dado, y muestra la accion en la ventana (ademas del numero del dado)
@@ -308,7 +271,7 @@ public class Game extends javax.swing.JFrame {
     
     public void ScoreCheck(){ //Checkea el Score del Jugador actual, si supera el limite establecido, muestra la pantalla final.
         if(turn != -1){
-        if((Players.get(turn).getScore()) > 5 ){
+        if((Players.get(turn).getScore()) > 39 ){
             endFrame.setWiner(Players.get(turn).getPlayerName());
             endFrame.setVisible(true);
             dispose();

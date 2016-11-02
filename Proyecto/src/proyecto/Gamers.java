@@ -103,7 +103,7 @@ public class Gamers extends javax.swing.JFrame {
 
     private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
         Mets.setPlayersGame(this.players);
-        Mets.setGamersName(G1.getText(),G2.getText(),G3.getText(),G4.getText());
+        Mets.setWindowPrepared(G1.getText(),G2.getText(),G3.getText(),G4.getText(),players);
         Mets.setVisibleGame();
         dispose();
         
@@ -112,17 +112,13 @@ public class Gamers extends javax.swing.JFrame {
     public void setPlayers(int p){ //se Recibe el numero de jugadores para corregir las JLabels
         this.players = p;
     }
+
+    public void G3_setVisible(boolean State){
+        G3.setVisible(State);
+    }    
     
-    public void LabelsCorrection(){ //Corrige las JLabels segun el numero de jugadores
-        switch (this.players){
-            case 2:
-                G3.setVisible(false);
-                G4.setVisible(false);
-                break;
-            case 3:
-                G4.setVisible(false);
-                break;            
-        }
+    public void G4_setVisible(boolean State){
+        G4.setVisible(State);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

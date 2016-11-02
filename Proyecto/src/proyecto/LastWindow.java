@@ -4,6 +4,7 @@ public class LastWindow extends javax.swing.JFrame {
 
     private String player = "Player ";
     private final DataManager data = new DataManager();
+    private final MainWindow obj = new MainWindow();
 
     public LastWindow() {
         initComponents();
@@ -55,7 +56,6 @@ public class LastWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
-        MainWindow obj = new MainWindow();
         obj.setVisible(true);
         addDrunkToRank();
         dispose();

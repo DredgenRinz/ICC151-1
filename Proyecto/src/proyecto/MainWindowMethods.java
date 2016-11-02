@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 public class MainWindowMethods {
     
     private final DataManager data = new DataManager();
+    private final Gamers game = new Gamers();    
     
     public int buton_Action(){ //Cuando se Presiona Comenzar, este metodo indica con cuantos jugadores se iniciara la partida
         String [] options = {"2","3","4"};
@@ -33,7 +34,6 @@ public class MainWindowMethods {
     }
     
     public void WinSwitch(int g){ //Indica a la siguiente ventana Cuantos jugadores son, y Escuende las labelsque no se ocuparan
-        Gamers game = new Gamers();
         game.setPlayers(g);
         game.LabelsCorrection();
         game.setVisible(true);
@@ -41,7 +41,7 @@ public class MainWindowMethods {
     }
     
     public void rankDrunks(){
-        String drunks = "";
+        String drunks;
         drunks = data.leerFichero("Ranking.txt");
         JOptionPane.showMessageDialog(null, "Los Mejores Borrachos hasta elmomento: \n" +drunks);
     }

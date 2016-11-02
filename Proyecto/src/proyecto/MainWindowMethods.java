@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class MainWindowMethods {
     
+    private final GamersMethods game = new GamersMethods();
     private final DataManager data = new DataManager();  
     
     public int buton_Action(){ //Cuando se Presiona Comenzar, este metodo indica con cuantos jugadores se iniciara la partida
@@ -32,8 +33,7 @@ public class MainWindowMethods {
         JOptionPane.showMessageDialog(null, "Reglas: \n");
     }
     
-    public void WinSwitch(int g){ //Indica a la siguiente ventana Cuantos jugadores son, y Escuende las labelsque no se ocuparan
-        GamersMethods game = new GamersMethods();          
+    public void WinSwitch(int g){ //Indica a la siguiente ventana Cuantos jugadores son, y Escuende las labelsque no se ocuparan          
         game.setPlayers(g);
         game.LabelsCorrection();
         game.setVisiblePlay();

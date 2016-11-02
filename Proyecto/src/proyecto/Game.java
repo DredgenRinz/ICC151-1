@@ -15,10 +15,10 @@ public class Game {
         private boolean dado_lock = true;
         private int turn = -1;        
 
-	public void preguntaAzar() {
-		int azar =(int)(Math.random()*39+0);
-
-	}
+        public String azarPregunta(ArrayList<String> preguntas){ 
+            int azar=(int) (Math.random()*preguntas.size()+0); 
+            return preguntas.get(azar); 
+        }
         
         public void armarPreguntas(){ //Crea la lista de preguntas y las agrega al arraylist
             preguntas = file.listaPreguntas("Preguntas.txt");
@@ -99,7 +99,7 @@ public class Game {
             if(pregunta >= preguntas.size()){
                 Question.setText("Usted Es un Gran DRUNK!");
             } else{
-                Question.setText(preguntas.get(pregunta));
+                Question.setText(azarPregunta(preguntas));
             }
         } else{
             JOptionPane.showMessageDialog(null, "ya lanzaste el dado!!!");
@@ -150,7 +150,7 @@ public class Game {
     
     protected boolean ScoreCheck(){ //Checkea el Score del Jugador actual, si supera el limite establecido, muestra la pantalla final.
         if(turn != -1){
-            if((Players.get(turn).getScore()) > 10 ){
+            if((Players.get(turn).getScore()) > 50 ){
                 frameWinner endFrame = new frameWinner();
                 endFrame.setWiner(Players.get(turn).getPlayerName());
                 endFrame.setVisible(true);

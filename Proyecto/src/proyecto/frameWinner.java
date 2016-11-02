@@ -1,12 +1,12 @@
 package proyecto;
 
-public class LastWindow extends javax.swing.JFrame {
+public class frameWinner extends javax.swing.JFrame {
 
     private String player = "Player ";
     private final DataManager data = new DataManager();
-    private final MainWindow obj = new MainWindow();
+    private final frameMain obj = new frameMain();
 
-    public LastWindow() {
+    public frameWinner() {
         initComponents();
     }
     @SuppressWarnings("unchecked")

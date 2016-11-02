@@ -221,7 +221,11 @@ public class Game extends javax.swing.JFrame {
             Dado.setIcon(null);
             dado_lock = true;
             int pregunta = Players.get(turn).getScore() + cara;
-            Question.setText(Mech.preguntas.get(pregunta));
+            if(pregunta >= Mech.preguntas.size()){
+                Question.setText("Usted Es un Gran DRUNK!");
+            } else{
+                Question.setText(Mech.preguntas.get(pregunta));
+            }
         } else{
             JOptionPane.showMessageDialog(null, "ya lanzaste el dado!!!");
         }

@@ -199,7 +199,7 @@ public class Game extends javax.swing.JFrame {
         }    
     
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+
     protected javax.swing.JButton Dado;
     protected javax.swing.JLabel J1;
     protected javax.swing.JLabel J1Score;
@@ -212,7 +212,7 @@ public class Game extends javax.swing.JFrame {
     protected javax.swing.JButton Next;
     protected javax.swing.JTextArea Question;
     protected javax.swing.JScrollPane jScrollPane1;
-    // End of variables declaration//GEN-END:variables
+
 
     private void dado_number() { //Simula el lanzamiento del dado, y muestra la accion en la ventana (ademas del numero del dado)
         if(dado_lock == false){

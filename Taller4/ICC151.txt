@@ -1,0 +1,15 @@
+18951169816,AGÜERO,DIEGO,d.aguero02@ufromail.cl
+19518645616,BARRIENTOS,BASTIÁN,b.barrientos01@ufromail.cl
+18886131816,BERNUCCI,CARLO,c.bernucci01@ufromail.cl
+19722292116,CARRION,CRISTOBAL,c.carrion01@ufromail.cl
+19763899016,CORTÉS,DANIEL,d.cortes03@ufromail.cl
+18973315116,DARIGO,GIACCOMO,g.darigo01@ufromail.cl
+19479917916,FIERRO,FRANCISCO,f.fierro03@ufromail.cl
+19769295216,GARRIDO,DIEGO,d.garrido04@ufromail.cl
+19761811616,JARA,GERMAN,g.jara08@ufromail.cl
+19527992615,MERCADO,PATRICIO,p.mercado01@ufromail.cl
+19518325215,NUALART,JAVIER,j.nualart02@ufromail.cl
+19922376316,PARRA,LUCAS,l.parra03@ufromail.cl
+19803527016,QUEUPUMIL,EDUARDO,e.queupumil01@ufromail.cl
+19810085416,SANHUEZA,ALEXIS,a.sanhueza09@ufromail.cl
+18439216K15,VARGAS,JAVIER,j.vargas05@ufromail.cl

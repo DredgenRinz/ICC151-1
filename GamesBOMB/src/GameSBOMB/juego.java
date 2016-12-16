@@ -12,7 +12,8 @@ public class juego extends javax.swing.JFrame implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         sec++;
         jLabel4.setText(""+sec);
-        if (win == 59){
+        if (p >= 59){
+        score.writePuntos(puntos);
         ventanaFinal obj = new ventanaFinal(0);       
         obj.setVisible(true);
         dispose();
@@ -24,19 +25,20 @@ public class juego extends javax.swing.JFrame implements ActionListener {
             }
         }
        private int sec = 0;
-       private int win = 0;
        private Timer t;
        private int lock = 0;
        private int butonPress = 4;
        private int repetido = 0;
        private int cont = 0;
        private int p = -1; 
-       private preguntas lista = new preguntas();
-       private respuestas listaR = new respuestas();
+       private final preguntas lista = new preguntas();
+       private final respuestas listaR = new respuestas();
+       private final puntos score = new puntos();
        private String [] listaPreg = new String [60];
-       private String [] listaRespuestas = listaR.getrespuestas();
+       private final String [] listaRespuestas = listaR.getrespuestas();
        private Random rnd = new Random();
        private jugadores archivo = new jugadores ();
+       private int [] puntos;
        private int [] resultado;
        private int j = -1;
        private int limit;
@@ -48,7 +50,8 @@ public class juego extends javax.swing.JFrame implements ActionListener {
        }
         
     public juego(int jpl, int preg) {
-        resultado = preguntas.readPreguntas();
+        this.puntos = score.readPuntos();
+        this.resultado = preguntas.readPreguntas();
         initComponents();
         this.j = jpl;
         this.p = preg;
@@ -114,7 +117,7 @@ public class juego extends javax.swing.JFrame implements ActionListener {
             }
         });
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(380, 10, 60, 40);
+        jLabel4.setBounds(370, 10, 60, 40);
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Player ");
@@ -132,8 +135,6 @@ public class juego extends javax.swing.JFrame implements ActionListener {
         jLabel3.setFont(new java.awt.Font("Emulogic", 1, 10)); // NOI18N
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel3.setOpaque(true);
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(210, 380, 550, 30);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/sacrifice_by_lonefirewarrior-d6krcmj.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
@@ -145,6 +146,7 @@ public class juego extends javax.swing.JFrame implements ActionListener {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        score.writePuntos(puntos);
         irBomba();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -175,16 +177,18 @@ public class juego extends javax.swing.JFrame implements ActionListener {
             break;
         case 2:  
         
-            if (win == 59){
+            if (p >= 59){
                 irFinal();
             } else{
                 if (lock == 1){
+                    score.writePuntos(puntos);
                     irBomba();
                 } else {
                     p++;
                     try{
                         jLabel1.setText(listaPreg[resultado[p]]);
                     }catch (IndexOutOfBoundsException e){}
+                    puntos[j]++;
                     j++;
                     if(j > limit){
                     j = 0;
@@ -192,8 +196,7 @@ public class juego extends javax.swing.JFrame implements ActionListener {
                     nextPlayer();
                     nextPlayer();
                     nextPlayer();
-                    jLabel2.setText("Player " +(j+1));        
-                    win++;         
+                    jLabel2.setText("Player " +(j+1));                 
                     t.start();
                 }
                 butonPress = 1;
@@ -202,6 +205,7 @@ public class juego extends javax.swing.JFrame implements ActionListener {
                 }
             break;
         case 3: 
+            score.writePuntos(puntos);
             irBomba();
             break;
         case 4:
@@ -223,7 +227,9 @@ public class juego extends javax.swing.JFrame implements ActionListener {
             getContentPane().add(jButton1);
             jButton1.setBounds(70, 470, 220, 70);
             getContentPane().add(jButton3);
-            jButton3.setBounds(20, 380, 180, 30);
+            jButton3.setBounds(20, 380, 180, 30);	
+            getContentPane().add(jLabel3);
+            jLabel3.setBounds(210, 380, 550, 30);		
             break;
         }
                 

@@ -3,8 +3,16 @@ package GameSBOMB;
 public class ventanaFinal extends javax.swing.JFrame {
 
     private String player = "Player ";
+    jugadores archivo = new jugadores();
+    preguntas file = new preguntas();
+    puntos score = new puntos();
     public ventanaFinal(int winner) {
+        if(winner == 0){
+            winner = score.mayor();
+        }
         player = player + Integer.toString(winner);
+        archivo.delete();
+        file.delete();
         initComponents();
     }
     @SuppressWarnings("unchecked")

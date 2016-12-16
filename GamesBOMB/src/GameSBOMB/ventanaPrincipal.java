@@ -6,6 +6,9 @@ import javax.swing.JOptionPane;
 public class ventanaPrincipal extends javax.swing.JFrame {
     jugadores archivo = new jugadores();
     preguntas mezcla = new preguntas ();
+    puntos score = new puntos();
+    int [] inicio = {0,0,0,0};
+    
     public ventanaPrincipal() {
         initComponents();
     }
@@ -246,6 +249,8 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 		options[0]) + 2; //the title of the default button
         archivo.writePlayers(n);
         mezcla.writePreguntas();
+        score.delete();
+        score.writePuntos(inicio);
         juego jugar = new juego(-1,0);
         jugar.setJ(n-1);
         jugar.setVisible(true);

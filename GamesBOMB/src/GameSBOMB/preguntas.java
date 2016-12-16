@@ -155,7 +155,7 @@ public class preguntas {
         return resultado.clone();
    }        
 
-    private void delete() {
+    public void delete() {
         File fichero = new File("preguntas.txt");
         fichero.delete();
     }

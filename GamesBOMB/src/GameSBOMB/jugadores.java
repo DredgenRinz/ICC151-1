@@ -188,7 +188,7 @@ public class jugadores {
         return (0);
     }
 
-    private void delete() {
+    public void delete() {
         File fichero = new File("players.txt");
         fichero.delete();
     }
